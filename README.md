@@ -1,11 +1,12 @@
-# Windows 95 Theme for Jekyll
+# Windows 98 Aesthetic Theme for Jekyll
 
-![ss](https://github.com/h01000110/windows-95/raw/gh-pages/screenshot_2.png)
+Currently being worked on... Can be seen over on https://fngryboi.github.io
+*Note: The source code here might be older than the one hosted on https://fngryboi.github.io currently as I'm ironing out the rough edges*
 
-Homepage: [Windows 95](https://h01000110.github.io/20170917/windows-95)
+Inspired by PaladinAmber's stream overlay and lo-fi music streams that can be found on YouTube, initially made as a 1 day project of mine but has over time been worked on to fix various bugs and quirks.
 
-Demo: [Click here](https://h01000110.github.io/windows-95/)
+Original theme made by h01000110 (hi): [Windows 95](https://h01000110.github.io/20170917/windows-95)
 
-Author: [h01000110 (hi)](https://github.com/h01000110)
+Original Author: [h01000110 (hi)](https://github.com/h01000110)
 
 License: [MIT](https://github.com/h01000110/windows-95/blob/master/LICENSE)
