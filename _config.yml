@@ -1,16 +1,11 @@
-permalink: /:year:month:day/:title
-url: #Your url here
-baseurl: /project
+url: 'http://fngryboi.github.io'
+domain_name: 'http://fngryboi.github.io/'
 
 # variables
-name: Your Site Name
-description: Your description here
+name: Fngryboi's PC
+title: Fngryboi's PC
+description: Development Shenanigans, Gaming, Modding, VR.
 google_verification: null
-
-
-# File management
-include: [".htaccess"]
-exclude: ["README.md", "LICENSE"]
 
 # Sass
 sass:
@@ -23,3 +18,8 @@ kramdown:
   input: GFM
   syntax_highlighter_opts:
     disable : true
+
+# General Jekyll Config
+lsi: false
+include: [".htaccess"]
+exclude: [LICENSE, CNAME, README.md, .gitignore, Gemfile, Gemfile.lock]

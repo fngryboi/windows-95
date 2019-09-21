@@ -1,7 +1,59 @@
+// Background Gradient: Left to Right
+@mixin bg-gradient-l2r($start-colour, $end-colour) {
+	background-color: $start-colour;
+	background-image: -webkit-gradient(linear, left top, right top, from($start-colour), to($end-colour));
+	background-image: -webkit-linear-gradient(left, $start-colour, $end-colour);
+	background-image:    -moz-linear-gradient(left, $start-colour, $end-colour);
+	background-image:     -ms-linear-gradient(left, $start-colour, $end-colour);
+	background-image:      -o-linear-gradient(left, $start-colour, $end-colour);
+	background-image:         linear-gradient(left, $start-colour, $end-colour);
+	filter:            progid:DXImageTransform.Microsoft.gradient(start-colourStr='#{$start-colour}', end-colourStr='#{$end-colour}', gradientType='1');
+}
+/* mixin for multiline */
+@mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+	overflow: hidden;
+	position: relative;
+	line-height: $lineHeight;
+	max-height: $lineHeight * $lineCount; 
+	text-align: justify;
+	margin-right: -1em;
+	padding-right: 1em;
+	&:before {
+	  content: '...';
+	  position: absolute;
+	  right: 0;
+	  bottom: 0;
+	}
+	&:after {
+	  content: '';
+	  position: absolute;
+	  right: 0;
+	  width: 1em;
+	  height: 1em;
+	  margin-top: 0.2em;
+	  background: $bgColor;
+	}
+  }
+
 body {
-	background: #008082;
+	background: #007b7b;
 	font-family: sans-serif, serif, monospace;
 	font-size: 13px;
+}
+
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('/assets/video/mp4.png') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
 }
 
 .wrapper, .content {
@@ -109,10 +161,17 @@ ul.topbar {
 			display: inline-block;
 			margin: 10px;
 			max-width: 16ch;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
+			height: 9ch;
 			text-align: center;
+			overflow: hidden;
+
+			#filename {
+				word-wrap: break-word;
+				height:4ch;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;  
+			}
 
 			img {
 				display: block;
@@ -155,9 +214,6 @@ ul.topbar {
 		}
 	}
 }
-#tag-list {
-    background:transparent url(/assets/img/pixel-alt.png) repeat-y 15px 0;
-}
 #tag-list li {
     padding:0 0 0 2px;
 }
@@ -165,11 +221,42 @@ ul.topbar {
     background: #fff8ff;
     display:block;
 }
-#tag-list li ul li {
-    background:transparent url(/assets/img/pixel-alt.png) repeat-x 0 8px;
-    margin:4px 0 4px 13px;
-    padding:0 0 0 20px;
+#tag-list li ul li::before {
+	content: " ";
+	position: absolute;
+	z-index:20000;
+	background:#000;
+	height:18px;
+	width:3px;
+	margin-left: -20px;
+	background:transparent url(/assets/img/pixel-alt.png) repeat-y;
 }
+#tag-list li ul li:first-child::before {
+	content: " ";
+	position: absolute;
+	z-index:20000;
+	height:22px;
+	margin-top: -4px;
+	width:3px;
+	margin-left: -20px;
+	background: url(/assets/img/pixel-alt.png) repeat-y;
+}
+#tag-list li ul li:last-child::before {
+	content: " ";
+	position: absolute;
+	z-index:20000;
+	height:8px;
+	width:3px;
+	margin-left: -20px;
+	background: url(/assets/img/pixel-alt.png) repeat-y;
+}
+#tag-list li ul li {
+    background:transparent url(/assets/img/pixel-alt.png) repeat-x 0 6px;
+    margin:4px 0 4px 13px;
+    padding:0 0 0 18px;
+}
+
+
 .post_total {
 	.left, .right {
 		border: 1px solid;
@@ -186,11 +273,13 @@ ul.topbar {
 		margin-right: 2px;
 	}
 }
+
+
 .post_content {
 	position: relative;
 	width: 98.5%;
-	min-height: 600px;
-	max-height: 600px;
+	min-height: 20vh;
+	max-height: 70vh;
 	padding: 2px;
 	margin: 0 auto;
 	overflow-y: scroll;
