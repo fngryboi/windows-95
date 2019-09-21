@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Win98 Lo-Fi Theme
+title: Win98 Aesthetic Theme
 tags:
     - web
 published: true
